@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package api.bubble.v1;
-
+import "google/api/annotations.proto";
 option go_package = "bubble/api/bubble/v1;v1";
 option java_multiple_files = true;
 option java_package = "api.bubble.v1";
