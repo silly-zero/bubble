@@ -21,7 +21,7 @@ type Todo struct {
 	Status bool
 }
 
-// biz层对数据进行操作
+// biz对数据操作层，负责对数据库进行操作
 // TodoRepo is a Todo repo.
 type TodoRepo interface {
 	Save(context.Context, *Todo) (*Todo, error)
@@ -45,6 +45,6 @@ func NewTodoUsecase(repo TodoRepo, logger log.Logger) *TodoUsecase {
 // 对外提供的业务函数，给service层调用（应用层调用）
 // CreateTodo creates a Todo, and returns the new Todo.
 func (uc *TodoUsecase) CreateTodo(ctx context.Context, t *Todo) (*Todo, error) {
-	uc.log.WithContext(ctx).Infof("CreateTodo: %v", t.Title)
+	uc.log.WithContext(ctx).Infof("Create: %v", t.Title)
 	return uc.repo.Save(ctx, t)
 }

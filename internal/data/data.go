@@ -8,11 +8,13 @@ import (
 )
 
 // ProviderSet is data providers.
-var ProviderSet = wire.NewSet(NewData, NewGreeterRepo)
+var ProviderSet = wire.NewSet(NewData, NewTodoRepo)
 
 // Data .
+// 数据库包装，这里可以添加数据库连接池等
 type Data struct {
 	// TODO wrapped database client
+	//db *gorm.DB
 }
 
 // NewData .
